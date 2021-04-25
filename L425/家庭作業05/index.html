@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+      <!DOCTYPE html>
+  <html lang ="zh">
+    
+    <head>
+    <meta charset="UTF-8">
+        <title>家庭作業05</title>
+    <style>
+        h4 {
+        color: red;
+            }
+        div{
+        color: blue;
+        margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    <form id="form01">
+        姓名:<input type="text" name="name01" value="陳瑩"><br>
+        收件住址:<input type="text" name="address01" value="台北市中正區重慶南路二段19巷12號-1一樓"><br>
+        電話:<input type="tel" name="tel01" value="0978868060"><br>
+        電子郵件:<input type="email" name="email01" value="z124315240174@gamil.com"><br>
+        指定送貨日期:<input type="date" name="date01" ><br>
+       商品種類：<br>
+		<input type="checkbox" name="good"id="good01"value="涼爽長版純色半開襟翻領前後兩穿五分袖短袖上衣(一件)">涼爽長版純色半開襟翻領前後兩穿五分袖短袖上衣(一件)128元 <br>
+        <input type="checkbox" name="good" id="good02" value="簡約條紋彈性短袖上衣(一件) "> 簡約條紋彈性短袖上衣(一件)680元<br>
+        <input type="checkbox" name="good" id="good03" value=" PUMA 彪馬 Platform Trace Wn's 帆布鞋（一雙）">  彪馬 PUMA Platform Trace Wn's 帆布鞋（一雙） 1200元<br>
+		<input type="checkbox" name="good" id="good04" value=" 直條紋荷葉細肩帶背心無袖上衣（一件）">  直條紋荷葉細肩帶背心無袖上衣（一件） 280元<br>
+		<input type="checkbox" name="good" id="good05" value=" 七分袖打褶領口後襬抓皺上衣（一件）"> 七分袖打褶領口後襬抓皺上衣 (一件)325元<br>
+		<input type="checkbox" name="good" id="good06" value="高含棉V領開襟後綁帶拋袖上衣(一件)">高含棉V領開襟後綁帶拋袖上衣（一件）108元<br>
+		
+        </form>
+       
+<button onclick="shoppingInfo()"><h4>結帳</h4></button>
+<div id= "demo"></div>
+<script>
+
+    function shoppingInfo(){
+        var x = document.getElementById("form01");
+        var item  ="";
+        var price = 0;
+        var text = "<h4>您的購物資訊如下:</h4>";
+        var i;
+		 
+	    text += "<table border='1' width='90%' cellspacing='0' cellpadding='0'>" ;
+		 for (i=0;i<5; i++){	
+			 text += "<tr>";
+              switch (i) {
+				   case 0 :
+				  item = "姓名:";
+				   break; 
+	           
+               case 1 :
+                 item = "收件住址:";
+                 break;
+               case 2:
+                 item = "電話:";
+                 break;
+               
+               case 3 :
+                 item = "電子郵件:";
+                 break;
+               case 4:
+                 item = "指定送貨日期:";
+                 break;
+			  }
+			text += "<td>" + item + "</td>" + "<td>" + x.elements[i].value +"</td>";
+             text += "</tr>";
+                  
+		 
+		 }
+      for (i=5;i<=10; i++){
+        
+		  if(x.elements[i].checked == true){
+                switch(i){
+                    case 5: price=128; break;
+                    case 6: price=680; break;
+                    case 7: price=1200; break;
+					case 8: price=280; break;
+					case 9: price=325; break;
+					case 10: price=108; break;
+				   
+                    }
+			  text +="<td>"+ "商品種類:" + "</td>" + "<td>" + x.elements[i].value + "</td>";
+			  text += "</tr>";
+              text += "<td>"+ "價格合計:" + "</td>" + "<td>"+ price + "元" + "</td>";
+			   text += "</tr>";
+                    }
+		     
+                }
+			  document.getElementById("demo").innerHTML = text;		
+	
+	}     
+	
+      </script>
+    
+        
+    </body>
+    </html>
